@@ -64,3 +64,68 @@
 [0] [32m[nodemon] starting `node src/server.js`[39m
 [0] API listening on http://localhost:5000
 [1] [2m12:01:28 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/ScrollToTop.jsx, /src/styles.css[22m
+[1] [2m12:08:38 PM[22m [36m[1m[vite][22m[39m [32mvite.config.js changed, restarting server...[39m
+[1] [2m12:08:38 PM[22m [36m[1m[vite][22m[39m [32mvite.config.js changed, restarting server...[39m
+[1] X [ERROR] Expected "}" but found "server"
+[1] 
+[1]     vite.config.js:7:2:
+[1]       7 │   server: {
+[1]         │   ~~~~~~
+[1]         ╵   }
+[1] 
+[1] [31mfailed to load config from D:\qaaa\frontend\vite.config.js[39m
+[1] [2m12:08:41 PM[22m [31m[1m[vite][22m[39m Build failed with 1 error:
+[1] vite.config.js:7:2: ERROR: Expected "}" but found "server"
+[1] [2m12:08:41 PM[22m [31m[1m[vite][22m[39m server restart failed
+[1] [2m12:08:41 PM[22m [36m[1m[vite][22m[39m [32mvite.config.js changed, restarting server...[39m
+[1] [2m12:08:41 PM[22m [36m[1m[vite][22m[39m [32mvite.config.js changed, restarting server...[39m
+[1] X [ERROR] Expected "}" but found "server"
+[1] 
+[1]     vite.config.js:7:2:
+[1]       7 │   server: {
+[1]         │   ~~~~~~
+[1]         ╵   }
+[1] 
+[1] [31mfailed to load config from D:\qaaa\frontend\vite.config.js[39m
+[1] [2m12:08:41 PM[22m [31m[1m[vite][22m[39m Build failed with 1 error:
+[1] vite.config.js:7:2: ERROR: Expected "}" but found "server"
+[1] [2m12:08:41 PM[22m [31m[1m[vite][22m[39m server restart failed
+[1] [2m12:08:43 PM[22m [36m[1m[vite][22m[39m [32mvite.config.js changed, restarting server...[39m
+[1] [2m12:08:47 PM[22m [36m[1m[vite][22m[39m server restarted.
+[1] [2m12:08:56 PM[22m [36m[1m[vite][22m[39m [32mvite.config.js changed, restarting server...[39m
+[1] X [ERROR] Expected "}" but found ":"
+[1] 
+[1]     vite.config.js:7:8:
+[1]       7 │   server: {
+[1]         │         ^
+[1]         ╵         }
+[1] 
+[1] [31mfailed to load config from D:\qaaa\frontend\vite.config.js[39m
+[1] [2m12:08:56 PM[22m [31m[1m[vite][22m[39m Build failed with 1 error:
+[1] vite.config.js:7:8: ERROR: Expected "}" but found ":"
+[1] [2m12:08:56 PM[22m [31m[1m[vite][22m[39m server restart failed
+[1] [2m12:08:56 PM[22m [36m[1m[vite][22m[39m [32mvite.config.js changed, restarting server...[39m
+[1] X [ERROR] Expected "}" but found ":"
+[1] 
+[1]     vite.config.js:7:8:
+[1]       7 │   server: {
+[1]         │         ^
+[1]         ╵         }
+[1] 
+[1] [31mfailed to load config from D:\qaaa\frontend\vite.config.js[39m
+[1] [2m12:08:57 PM[22m [31m[1m[vite][22m[39m Build failed with 1 error:
+[1] vite.config.js:7:8: ERROR: Expected "}" but found ":"
+[1] [2m12:08:57 PM[22m [31m[1m[vite][22m[39m server restart failed
+[1] [2m12:08:58 PM[22m [36m[1m[vite][22m[39m [32mvite.config.js changed, restarting server...[39m
+[1] [2m12:08:58 PM[22m [36m[1m[vite][22m[39m [32mvite.config.js changed, restarting server...[39m
+[1] [2m12:08:59 PM[22m [36m[1m[vite][22m[39m server restarted.
+[1] [2m12:09:04 PM[22m [36m[1m[vite][22m[39m [32mvite.config.js changed, restarting server...[39m
+[1] [2m12:09:04 PM[22m [36m[1m[vite][22m[39m server restarted.
+[1] 
+[1]   [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5173[22m/cbl[39m
+[1]   [32m➜[39m  [1mNetwork[22m: [36mhttp://192.168.1.6:[1m5173[22m/cbl[39m
+[1] [2m12:28:01 PM[22m [36m[1m[vite][22m[39m [32mvite.config.js changed, restarting server...[39m
+[1] [2m12:28:01 PM[22m [36m[1m[vite][22m[39m server restarted.
+[1] 
+[1]   [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5173[22m/[39m
+[1]   [32m➜[39m  [1mNetwork[22m: [36mhttp://192.168.1.6:[1m5173[22m/[39m

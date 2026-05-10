@@ -13,7 +13,7 @@ const links = [
 
 export default function Navbar() {
   const { theme, toggleTheme } = useTheme();
-  const { user, profile, login, logout, isAdmin } = useAuth();
+  const { user, profile, logout, isAdmin } = useAuth();
   const [open, setOpen] = useState(false);
 
   return (
@@ -61,9 +61,9 @@ export default function Navbar() {
               <Bell className="hidden text-slate-400 lg:block" size={18} />
             </>
           ) : (
-            <button className="btn-primary hidden sm:inline-flex" onClick={login}>
-              Sign in
-            </button>
+            <Link className="btn-primary hidden sm:inline-flex" to="/login">
+              Login / Signup
+            </Link>
           )}
           <button className="btn-soft h-10 w-10 px-0 md:hidden" onClick={() => setOpen((item) => !item)} aria-label="Menu">
             {open ? <X size={18} /> : <Menu size={18} />}
@@ -87,9 +87,9 @@ export default function Navbar() {
                 Sign out
               </button>
             ) : (
-              <button className="rounded-2xl px-4 py-3 text-left font-semibold" onClick={login}>
-                Sign in with Google
-              </button>
+              <Link to="/login" onClick={() => setOpen(false)} className="rounded-2xl px-4 py-3 text-left font-semibold">
+                Login / Signup
+              </Link>
             )}
           </div>
         </div>

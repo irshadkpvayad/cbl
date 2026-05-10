@@ -1,8 +1,8 @@
-import { onAuthStateChanged, signInWithPopup, signOut } from "firebase/auth";
+import { getRedirectResult, onAuthStateChanged, signInWithPopup, signInWithRedirect, signOut } from "firebase/auth";
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
 import toast from "react-hot-toast";
-import { auth, googleProvider, storage } from "../firebase.js";
+import { auth, googleProvider, hasFirebaseWebConfig, storage } from "../firebase.js";
 import { api } from "../services/api.js";
 
 const AuthContext = createContext(null);
@@ -24,6 +24,18 @@ export function AuthProvider({ children }) {
   }, []);
 
   useEffect(() => {
+    getRedirectResult(auth)
+      .then(async (result) => {
+        if (result?.user) {
+          await syncSession(result.user);
+          toast.success("Welcome back");
+        }
+      })
+      .catch((error) => {
+        console.error(error);
+        toast.error(firebaseAuthMessage(error));
+      });
+
     const unsubscribe = onAuthStateChanged(auth, async (user) => {
       setFirebaseUser(user);
       try {
@@ -38,9 +50,23 @@ export function AuthProvider({ children }) {
   }, [syncSession]);
 
   const login = async () => {
-    const result = await signInWithPopup(auth, googleProvider);
-    await syncSession(result.user);
-    toast.success("Welcome back");
+    if (!hasFirebaseWebConfig) {
+      toast.error("Firebase web app config is missing. Add frontend/.env values first.");
+      throw new Error("Firebase web app config is missing");
+    }
+
+    try {
+      const result = await signInWithPopup(auth, googleProvider);
+      await syncSession(result.user);
+      toast.success("Welcome back");
+    } catch (error) {
+      if (["auth/popup-blocked", "auth/cancelled-popup-request", "auth/popup-closed-by-user"].includes(error.code)) {
+        await signInWithRedirect(auth, googleProvider);
+        return;
+      }
+      toast.error(firebaseAuthMessage(error));
+      throw error;
+    }
   };
 
   const logout = async () => {
@@ -77,4 +103,17 @@ export function AuthProvider({ children }) {
 
 export function useAuth() {
   return useContext(AuthContext);
+}
+
+function firebaseAuthMessage(error) {
+  if (error?.code === "auth/unauthorized-domain") {
+    return "This domain is not authorized in Firebase Authentication settings.";
+  }
+  if (error?.code === "auth/operation-not-allowed") {
+    return "Enable Google sign-in in Firebase Authentication.";
+  }
+  if (error?.code === "auth/invalid-api-key") {
+    return "Firebase web API key is invalid or missing.";
+  }
+  return error?.message || "Google sign-in failed";
 }
