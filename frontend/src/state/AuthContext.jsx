@@ -2,7 +2,7 @@ import { getRedirectResult, onAuthStateChanged, signInWithPopup, signInWithRedir
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
 import toast from "react-hot-toast";
-import { auth, googleProvider, hasFirebaseWebConfig, storage } from "../firebase.js";
+import { auth, googleProvider, storage } from "../firebase.js";
 import { api } from "../services/api.js";
 
 const AuthContext = createContext(null);
@@ -50,11 +50,6 @@ export function AuthProvider({ children }) {
   }, [syncSession]);
 
   const login = async () => {
-    if (!hasFirebaseWebConfig) {
-      toast.error("Firebase web app config is missing. Add frontend/.env values first.");
-      throw new Error("Firebase web app config is missing");
-    }
-
     try {
       const result = await signInWithPopup(auth, googleProvider);
       await syncSession(result.user);
