@@ -4,7 +4,7 @@ import { getFirestore } from "firebase/firestore";
 import { getMessaging, isSupported } from "firebase/messaging";
 import { getStorage } from "firebase/storage";
 
-const firebaseConfig = {
+export const firebaseConfig = {
   apiKey: import.meta.env.VITE_FIREBASE_API_KEY,
   authDomain: import.meta.env.VITE_FIREBASE_AUTH_DOMAIN,
   projectId: import.meta.env.VITE_FIREBASE_PROJECT_ID,
@@ -24,10 +24,10 @@ export const missingFirebaseConfig = Object.entries({
   .map(([key]) => key);
 
 export const isFirebaseConfigured = missingFirebaseConfig.length === 0;
-export const app = initializeApp(firebaseConfig);
-export const auth = getAuth(app);
-export const db = getFirestore(app);
-export const storage = getStorage(app);
+export const app = isFirebaseConfigured ? initializeApp(firebaseConfig) : null;
+export const auth = app ? getAuth(app) : null;
+export const db = app ? getFirestore(app) : null;
+export const storage = app ? getStorage(app) : null;
 export const googleProvider = new GoogleAuthProvider();
 googleProvider.setCustomParameters({ prompt: "select_account" });
-export const messagingPromise = isSupported().then((supported) => (supported ? getMessaging(app) : null));
+export const messagingPromise = app ? isSupported().then((supported) => (supported ? getMessaging(app) : null)) : Promise.resolve(null);

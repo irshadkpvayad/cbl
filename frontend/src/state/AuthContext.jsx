@@ -24,6 +24,11 @@ export function AuthProvider({ children }) {
   }, []);
 
   useEffect(() => {
+    if (!auth) {
+      setLoading(false);
+      return undefined;
+    }
+
     getRedirectResult(auth)
       .then(async (result) => {
         if (result?.user) {
@@ -50,7 +55,7 @@ export function AuthProvider({ children }) {
   }, [syncSession]);
 
   const login = async () => {
-    if (!isFirebaseConfigured) {
+    if (!isFirebaseConfigured || !auth) {
       const message = `Firebase setup incomplete: ${missingFirebaseConfig.join(", ")}`;
       toast.error(message);
       throw new Error(message);
@@ -71,6 +76,7 @@ export function AuthProvider({ children }) {
   };
 
   const logout = async () => {
+    if (!auth) return;
     await signOut(auth);
     setProfile(null);
     toast.success("Signed out");
@@ -80,6 +86,7 @@ export function AuthProvider({ children }) {
 
   const uploadImage = async (file, folder = "post-images") => {
     if (!firebaseUser) throw new Error("Please sign in first");
+    if (!storage) throw new Error("Firebase Storage is not configured");
     const path = `${folder}/${firebaseUser.uid}/${Date.now()}-${file.name}`;
     const snap = await uploadBytes(ref(storage, path), file, { contentType: file.type });
     return getDownloadURL(snap.ref);
