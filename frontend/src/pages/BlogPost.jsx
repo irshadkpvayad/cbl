@@ -58,7 +58,7 @@ export default function BlogPost() {
 
   return (
     <>
-      <SEO title={`${post.title} | Grid Journal`} description={post.subtitle || post.excerpt} image={post.thumbnail} type="article" />
+      <SEO title={`${post.title} | Qalam Thirash`} description={post.subtitle || post.excerpt} image={post.thumbnail} type="article" />
       <article>
         <header className="container-pad pt-10">
           <div className="mx-auto max-w-4xl text-center">

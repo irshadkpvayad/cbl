@@ -20,8 +20,8 @@ export default function Navbar() {
     <header className="sticky top-0 z-50 border-b border-slate-200/70 bg-paper/85 backdrop-blur-xl dark:border-white/10 dark:bg-slate-950/80">
       <nav className="container-pad flex h-20 items-center justify-between gap-4">
         <Link to="/" className="flex items-center gap-3 font-bold">
-          <span className="grid h-10 w-10 place-items-center rounded-2xl bg-slate-950 text-flame dark:bg-white">G</span>
-          <span className="text-lg">Grid Journal</span>
+          <span className="grid h-10 w-10 place-items-center rounded-2xl bg-slate-950 text-flame dark:bg-white">Q</span>
+          <span className="text-lg">Qalam Thirash</span>
         </Link>
 
         <div className="hidden items-center gap-1 md:flex">
@@ -62,7 +62,7 @@ export default function Navbar() {
             </>
           ) : (
             <Link className="btn-primary hidden sm:inline-flex" to="/login">
-              Login / Signup
+              Login
             </Link>
           )}
           <button className="btn-soft h-10 w-10 px-0 md:hidden" onClick={() => setOpen((item) => !item)} aria-label="Menu">
@@ -88,7 +88,7 @@ export default function Navbar() {
               </button>
             ) : (
               <Link to="/login" onClick={() => setOpen(false)} className="rounded-2xl px-4 py-3 text-left font-semibold">
-                Login / Signup
+                Login
               </Link>
             )}
           </div>

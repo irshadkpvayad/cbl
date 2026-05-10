@@ -53,7 +53,7 @@ export default function AuthorProfile() {
 
   return (
     <>
-      <SEO title={`${author.name} | Grid Journal`} description={author.bio || "Author profile and posts."} image={author.profilePicture} />
+      <SEO title={`${author.name} | Qalam Thirash`} description={author.bio || "Author profile and posts."} image={author.profilePicture} />
       <section className="container-pad py-12">
         <div className="grid gap-8 rounded-[2rem] bg-white p-6 shadow-glow dark:bg-slate-900 md:grid-cols-[220px_1fr_auto] md:p-10">
           <img src={author.profilePicture || "/icon.svg"} alt={author.name} className="h-44 w-44 rounded-[2rem] object-cover" />

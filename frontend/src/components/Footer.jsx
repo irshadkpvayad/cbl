@@ -7,8 +7,8 @@ export default function Footer() {
       <div className="container-pad grid gap-8 md:grid-cols-[1.3fr_.7fr_.7fr]">
         <div>
           <div className="flex items-center gap-3 font-bold">
-            <span className="grid h-10 w-10 place-items-center rounded-2xl bg-slate-950 text-flame dark:bg-white">G</span>
-            <span>Grid Journal</span>
+            <span className="grid h-10 w-10 place-items-center rounded-2xl bg-slate-950 text-flame dark:bg-white">Q</span>
+            <span>Qalam Thirash</span>
           </div>
           <p className="mt-4 max-w-md text-sm leading-6 text-slate-600 dark:text-slate-400">
             A modern Firebase-powered publishing platform for author-led articles, reader communities, and editorial workflows.

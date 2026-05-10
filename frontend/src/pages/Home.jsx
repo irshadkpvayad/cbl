@@ -37,7 +37,7 @@ export default function Home() {
 
   return (
     <>
-      <SEO title="Grid Journal | Modern Blog Platform" description="Premium publishing, author profiles, post requests, and Firebase-backed community features." />
+      <SEO title="Qalam Thirash | Modern Blog Platform" description="Premium publishing, author profiles, post requests, and Firebase-backed community features." />
       <section className="container-pad pt-8">
         <motion.div initial={{ opacity: 0, y: 16 }} animate={{ opacity: 1, y: 0 }} className="overflow-hidden rounded-[2rem] bg-hero-photo bg-cover bg-center p-5 text-white shadow-glow sm:p-8">
           <div className="flex items-center justify-between text-sm">

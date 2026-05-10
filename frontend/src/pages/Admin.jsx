@@ -57,7 +57,7 @@ export default function Admin() {
 
   return (
     <>
-      <SEO title="Admin | Grid Journal" description="Admin dashboard for users, posts, categories, comments, requests, analytics, and settings." />
+      <SEO title="Admin | Qalam Thirash" description="Admin dashboard for users, posts, categories, comments, requests, analytics, and settings." />
       <section className="container-pad py-10">
         <div className="grid gap-8 lg:grid-cols-[280px_1fr]">
           <aside className="glass h-max rounded-3xl p-4 lg:sticky lg:top-28">

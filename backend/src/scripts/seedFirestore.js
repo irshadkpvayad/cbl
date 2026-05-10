@@ -50,7 +50,7 @@ async function seed() {
   batch.set(
     db.collection("settings").doc("site"),
     {
-      title: "Grid Journal",
+      title: "Qalam Thirash",
       seoDescription: "Modern articles, ideas, and author-led stories.",
       logo: "",
       maintenanceMode: false,

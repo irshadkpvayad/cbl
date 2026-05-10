@@ -1,4 +1,4 @@
-# Grid Journal Blog Platform
+# Qalam Thirash Blog Platform
 
 A full-stack modern blog platform built with React + Vite + Tailwind CSS, Node.js + Express, and Firebase Authentication, Firestore, Storage, Hosting, and notification-ready Firestore feeds.
 

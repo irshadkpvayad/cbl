@@ -39,7 +39,7 @@ export default function Search() {
 
   return (
     <>
-      <SEO title="Search Articles | Grid Journal" description="Live search articles by topic, author, category, popularity, and tags." />
+      <SEO title="Search Articles | Qalam Thirash" description="Live search articles by topic, author, category, popularity, and tags." />
       <section className="container-pad py-12">
         <div className="grid gap-8 lg:grid-cols-[320px_1fr]">
           <aside className="glass h-max rounded-3xl p-5 lg:sticky lg:top-28">

@@ -41,7 +41,7 @@ adminRouter.get("/settings", async (_req, res, next) => {
       settings: snap.exists
         ? snap.data()
         : {
-            title: "Grid Journal",
+            title: "Qalam Thirash",
             seoDescription: "Modern articles, ideas, and author-led stories.",
             logo: "",
             socialLinks: {},

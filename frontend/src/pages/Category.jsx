@@ -16,7 +16,7 @@ export default function Category() {
 
   return (
     <>
-      <SEO title={`${slug} Articles | Grid Journal`} description={`Read the latest ${slug} articles.`} />
+      <SEO title={`${slug} Articles | Qalam Thirash`} description={`Read the latest ${slug} articles.`} />
       <section className="container-pad py-12">
         <div className="rounded-[2rem] bg-slate-950 p-8 text-white dark:bg-white dark:text-slate-950">
           <Layers className="text-flame" />

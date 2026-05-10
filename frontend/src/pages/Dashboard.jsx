@@ -74,7 +74,7 @@ export default function Dashboard() {
 
   return (
     <>
-      <SEO title="Dashboard | Grid Journal" description="User dashboard for profile, requests, comments, saves, notifications, follows, and ratings." />
+      <SEO title="Dashboard | Qalam Thirash" description="User dashboard for profile, requests, comments, saves, notifications, follows, and ratings." />
       <section className="container-pad py-10">
         <div className="grid gap-8 lg:grid-cols-[280px_1fr]">
           <aside className="glass h-max rounded-3xl p-4 lg:sticky lg:top-28">
