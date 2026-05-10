@@ -2,7 +2,7 @@ import { getRedirectResult, onAuthStateChanged, signInWithPopup, signInWithRedir
 import { getDownloadURL, ref, uploadBytes } from "firebase/storage";
 import { createContext, useCallback, useContext, useEffect, useMemo, useState } from "react";
 import toast from "react-hot-toast";
-import { auth, googleProvider, storage } from "../firebase.js";
+import { auth, googleProvider, isFirebaseConfigured, missingFirebaseConfig, storage } from "../firebase.js";
 import { api } from "../services/api.js";
 
 const AuthContext = createContext(null);
@@ -50,6 +50,12 @@ export function AuthProvider({ children }) {
   }, [syncSession]);
 
   const login = async () => {
+    if (!isFirebaseConfigured) {
+      const message = `Firebase setup incomplete: ${missingFirebaseConfig.join(", ")}`;
+      toast.error(message);
+      throw new Error(message);
+    }
+
     try {
       const result = await signInWithPopup(auth, googleProvider);
       await syncSession(result.user);
