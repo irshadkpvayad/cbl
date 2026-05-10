@@ -1,0 +1,66 @@
+
+> modern-blog-platform@1.0.0 dev
+> concurrently "npm run dev --prefix backend" "npm run dev --prefix frontend"
+
+[0] 
+[0] > modern-blog-platform-backend@1.0.0 dev
+[0] > nodemon src/server.js
+[0] 
+[1] 
+[1] > modern-blog-platform-frontend@1.0.0 dev
+[1] > vite --host 0.0.0.0
+[1] 
+[0] [33m[nodemon] 3.1.14[39m
+[0] [33m[nodemon] to restart at any time, enter `rs`[39m
+[0] [33m[nodemon] watching path(s): *.*[39m
+[0] [33m[nodemon] watching extensions: js,mjs,cjs,json[39m
+[0] [32m[nodemon] starting `node src/server.js`[39m
+[1] 
+[1]   [32m[1mVITE[22m v6.4.2[39m  [2mready in [0m[1m528[22m[2m[0m ms[22m
+[1] 
+[1]   [32m➜[39m  [1mLocal[22m:   [36mhttp://localhost:[1m5173[22m/[39m
+[1]   [32m➜[39m  [1mNetwork[22m: [36mhttp://192.168.1.6:[1m5173[22m/[39m
+[0] D:\qaaa\backend\node_modules\firebase-admin\lib\storage\storage.js:106
+[0]         throw new error_1.FirebaseError({
+[0]               ^
+[0] 
+[0] FirebaseError: Bucket name not specified or invalid. Specify a valid bucket name via the storageBucket option when initializing the app, or specify the bucket name explicitly when calling the getBucket() method.
+[0]     at Storage.bucket (D:\qaaa\backend\node_modules\firebase-admin\lib\storage\storage.js:106:15)
+[0]     at file:///D:/qaaa/backend/src/config/firebaseAdmin.js:23:39
+[0]     at ModuleJob.run (node:internal/modules/esm/module_job:222:25)
+[0]     at async ModuleLoader.import (node:internal/modules/esm/loader:323:24)
+[0]     at async loadESM (node:internal/process/esm_loader:28:7)
+[0]     at async handleMainPromise (node:internal/modules/run_main:113:12) {
+[0]   errorInfo: {
+[0]     code: 'storage/invalid-argument',
+[0]     message: 'Bucket name not specified or invalid. Specify a valid bucket name via the storageBucket option when initializing the app, or specify the bucket name explicitly when calling the getBucket() method.'
+[0]   }
+[0] }
+[0] 
+[0] Node.js v20.12.2
+[0] [31m[nodemon] app crashed - waiting for file changes before starting...[39m
+[0] [32m[nodemon] restarting due to changes...[39m
+[0] [32m[nodemon] starting `node src/server.js`[39m
+[0] API listening on http://localhost:5000
+[1] [2m11:51:18 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles.css, /src/pages/Home.jsx, /src/pages/BlogPost.jsx[22m
+[1] [2m11:51:18 AM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/styles.css, /src/pages/Home.jsx, /src/pages/BlogPost.jsx[22m
+[1] [2m12:00:07 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/App.jsx, /src/styles.css[22m
+[0] [32m[nodemon] restarting due to changes...[39m
+[0] [32m[nodemon] restarting due to changes...[39m
+[0] [32m[nodemon] restarting due to changes...[39m
+[0] [32m[nodemon] restarting due to changes...[39m
+[0] [32m[nodemon] starting `node src/server.js`[39m
+[1] [2m12:00:09 PM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/posts?sort=newest&limit=12[39m
+[1] AggregateError [ECONNREFUSED]: 
+[1]     at internalConnectMultiple (node:net:1116:18)
+[1]     at afterConnectMultiple (node:net:1683:7)
+[1] [2m12:00:09 PM[22m [31m[1m[vite][22m[39m [31mhttp proxy error: /api/posts?sort=newest&limit=12[39m
+[1] AggregateError [ECONNREFUSED]: 
+[1]     at internalConnectMultiple (node:net:1116:18)
+[1]     at afterConnectMultiple (node:net:1683:7)
+[0] API listening on http://localhost:5000
+[0] [32m[nodemon] restarting due to changes...[39m
+[0] [32m[nodemon] restarting due to changes...[39m
+[0] [32m[nodemon] starting `node src/server.js`[39m
+[0] API listening on http://localhost:5000
+[1] [2m12:01:28 PM[22m [36m[1m[vite][22m[39m [90m[2m(client)[22m[39m [32mhmr update [39m[2m/src/components/ScrollToTop.jsx, /src/styles.css[22m

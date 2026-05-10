@@ -1,0 +1,82 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function isOwner(uid) {
+      return signedIn() && request.auth.uid == uid;
+    }
+
+    function isAdmin() {
+      return signedIn()
+        && exists(/databases/$(database)/documents/users/$(request.auth.uid))
+        && get(/databases/$(database)/documents/users/$(request.auth.uid)).data.role == 'admin';
+    }
+
+    match /users/{uid} {
+      allow read: if true;
+      allow create: if isOwner(uid);
+      allow update: if isOwner(uid) || isAdmin();
+      allow delete: if isAdmin();
+    }
+
+    match /posts/{postId} {
+      allow read: if resource.data.status == 'published' || isAdmin() || isOwner(resource.data.author.uid);
+      allow create, update, delete: if isAdmin();
+    }
+
+    match /requests/{requestId} {
+      allow read: if isAdmin() || isOwner(resource.data.author.uid);
+      allow create: if signedIn() && request.resource.data.author.uid == request.auth.uid;
+      allow update: if isAdmin() || (signedIn() && resource.data.author.uid == request.auth.uid && resource.data.status == 'pending');
+      allow delete: if isAdmin() || isOwner(resource.data.author.uid);
+    }
+
+    match /comments/{commentId} {
+      allow read: if true;
+      allow create: if signedIn() && request.resource.data.author.uid == request.auth.uid;
+      allow update: if isAdmin() || isOwner(resource.data.author.uid);
+      allow delete: if isAdmin() || isOwner(resource.data.author.uid);
+    }
+
+    match /categories/{id} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /subcategories/{id} {
+      allow read: if true;
+      allow write: if isAdmin();
+    }
+
+    match /ratings/{id} {
+      allow read: if true;
+      allow write: if signedIn();
+    }
+
+    match /notifications/{id} {
+      allow read, update: if signedIn() && resource.data.toUid == request.auth.uid;
+      allow create, delete: if isAdmin();
+    }
+
+    match /followers/{id} {
+      allow read: if true;
+      allow create, delete: if signedIn();
+    }
+
+    match /bookmarks/{id} {
+      allow read, write: if signedIn() && request.auth.uid == request.resource.data.uid;
+    }
+
+    match /activityLogs/{id} {
+      allow read, write: if isAdmin();
+    }
+
+    match /newsletter/{id} {
+      allow create: if true;
+      allow read, update, delete: if isAdmin();
+    }
+  }
+}

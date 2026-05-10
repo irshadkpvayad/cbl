@@ -1,0 +1,15 @@
+{
+  "name": "Grid Journal Blog Platform",
+  "short_name": "Grid Journal",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#f7fbfd",
+  "theme_color": "#0f172a",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "64x64",
+      "type": "image/svg+xml"
+    }
+  ]
+}

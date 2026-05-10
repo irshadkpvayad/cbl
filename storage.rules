@@ -1,0 +1,28 @@
+rules_version = '2';
+service firebase.storage {
+  match /b/{bucket}/o {
+    function signedIn() {
+      return request.auth != null;
+    }
+
+    function isSafeImage() {
+      return request.resource.size < 5 * 1024 * 1024
+        && request.resource.contentType.matches('image/.*');
+    }
+
+    match /avatars/{uid}/{fileName} {
+      allow read: if true;
+      allow write: if signedIn() && request.auth.uid == uid && isSafeImage();
+    }
+
+    match /post-images/{uid}/{fileName} {
+      allow read: if true;
+      allow write: if signedIn() && request.auth.uid == uid && isSafeImage();
+    }
+
+    match /category-images/{fileName} {
+      allow read: if true;
+      allow write: if signedIn() && request.auth.token.email == "geektyle8@gmail.com" && isSafeImage();
+    }
+  }
+}
