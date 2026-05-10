@@ -9,7 +9,17 @@ import { ThemeProvider } from "./state/ThemeContext.jsx";
 import "./styles.css";
 
 if ("serviceWorker" in navigator && import.meta.env.PROD) {
-  window.addEventListener("load", () => navigator.serviceWorker.register("/sw.js"));
+  let refreshing = false;
+  navigator.serviceWorker.addEventListener("controllerchange", () => {
+    if (refreshing) return;
+    refreshing = true;
+    window.location.reload();
+  });
+
+  window.addEventListener("load", async () => {
+    const registration = await navigator.serviceWorker.register("/sw.js", { updateViaCache: "none" });
+    registration.update();
+  });
 }
 
 ReactDOM.createRoot(document.getElementById("root")).render(
