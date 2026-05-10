@@ -154,6 +154,40 @@ settings
 
 ## Deployment
 
+### Vercel
+
+This repo includes `vercel.json` for Vercel projects with multiple services:
+
+- Frontend service: `frontend`, routed at `/`
+- Backend service: `backend`, routed at `/_backend`
+
+For Vercel, set these frontend environment variables:
+
+```text
+VITE_API_URL=/_backend/api
+VITE_FIREBASE_API_KEY=...
+VITE_FIREBASE_AUTH_DOMAIN=...
+VITE_FIREBASE_PROJECT_ID=...
+VITE_FIREBASE_STORAGE_BUCKET=...
+VITE_FIREBASE_MESSAGING_SENDER_ID=...
+VITE_FIREBASE_APP_ID=...
+```
+
+Set these backend environment variables in the backend service:
+
+```text
+FIREBASE_PROJECT_ID=...
+FIREBASE_CLIENT_EMAIL=...
+FIREBASE_PRIVATE_KEY=-----BEGIN PRIVATE KEY-----\n...\n-----END PRIVATE KEY-----\n
+FIREBASE_STORAGE_BUCKET=...
+CLIENT_URL=https://your-vercel-domain.vercel.app
+ADMIN_EMAIL=geektyle8@gmail.com
+```
+
+The frontend also defaults to `/_backend/api` in production if `VITE_API_URL` is not provided.
+
+### Firebase Hosting
+
 Build the frontend:
 
 ```bash

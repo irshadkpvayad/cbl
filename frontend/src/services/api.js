@@ -1,4 +1,4 @@
-const API_URL = import.meta.env.VITE_API_URL || "/api";
+const API_URL = import.meta.env.VITE_API_URL || (import.meta.env.PROD ? "/_backend/api" : "/api");
 
 export async function api(path, options = {}, token = "") {
   const headers = {
